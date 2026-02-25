@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="da" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Primário -->
+    <title>GLPura™ — Naturlig støtte til stofskifte & vægtkontrol | Officiel Side</title>
+    <meta name="description"
+        content="Genaktiver dit stofskifte naturligt med GLPura™. Den førende løsning i Danmark til appetitkontrol, stabil energi og bæredygtigt vægttab uden nåle eller medicin.">
+    <meta name="keywords"
+        content="GLPura, vægttab, stofskifte, appetitkontrol, naturligt vægttab, GLP-1 støtte, energi, sund livsstil Danmark">
+    <meta name="author" content="GLPura Denmark">
+    <link rel="canonical" href="https://glpura-dk.vercel.app/">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://glpura-dk.vercel.app/">
+    <meta property="og:title" content="GLPura™ — Naturlig kontrol over din vægt og dit stofskifte">
+    <meta property="og:description"
+        content="Dæmp sult og stabiliser din energi naturligt. Glpura™ hjælper dig med at genaktivere din krops potentiale uden medicin.">
+    <meta property="og:image" content="https://glpura-dk.vercel.app/images/seo-banner.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://glpura-dk.vercel.app/">
+    <meta property="twitter:title" content="GLPura™ — Naturlig støtte til stofskifte & energi">
+    <meta property="twitter:description"
+        content="Gør vægtkontrol bæredygtig og realistisk. Oplev kraften i GLPura™ i dag.">
+    <meta property="twitter:image" content="https://glpura-dk.vercel.app/images/seo-banner.jpg">
+
+    <!-- JSON-LD Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "GLPura™",
+      "image": "https://glpura-dk.vercel.app/images/hero.png",
+      "description": "Naturligt kosttilskud designet til at støtte stofskifte, appetitkontrol og energiniveauer.",
+      "brand": {
+        "@type": "Brand",
+        "name": "GLPura"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "url": "https://glpura-dk.vercel.app/#bundles",
+        "priceCurrency": "DKK",
+        "lowPrice": "399",
+        "highPrice": "1499",
+        "offerCount": "3",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1250"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "GLPura Denmark",
+      "url": "https://glpura-dk.vercel.app",
+      "logo": "https://glpura-dk.vercel.app/images/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "kontakt@glpura.dk",
+        "contactType": "customer service",
+        "areaServed": "DK",
+        "availableLanguage": "Danish"
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            brown: '#3d2314',
+                            'brown-light': '#5e452f',
+                            orange: '#f08c3a',
+                            'orange-hover': '#d97d33',
+                            cream: '#Faf6ef',
+                            'cream-dark': '#f2ebdd',
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #Faf6ef;
+            color: #3d2314;
+        }
+
+        .text-body {
+            color: #5e452f;
+        }
+
+        .glass-nav {
+            background: rgba(250, 246, 239, 0.95);
+            border-bottom: 1px solid rgba(61, 35, 20, 0.05);
+        }
+
+        .opacity-0 {
+            opacity: 0;
+        }
+
+        /* Squircle for icons */
+        .squircle {
+            border-radius: 30%;
+        }
+
+        /* FAQ Accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Modals */
+        .modal {
+            display: none;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <div class="bg-brand-brown text-white text-center py-2 px-4 text-[13px] z-50">
+        <div class="max-w-7xl mx-auto flex flex-col gap-1">
+            <div class="font-bold tracking-wide flex items-center justify-center gap-2">
+                <i class="fa-solid fa-tag text-brand-orange"></i>
+                TIDSBEGRÆNSET: Spar 46% + Gratis levering i Danmark
+            </div>
+            <div class="opacity-80 text-xs">
+                30 dages garanti — Vegansk & GMO-fri — Sikker betaling
+            </div>
+        </div>
+    </div>
+
+    <!-- 2) BRAND IDENTITY / FLOATING NAVBAR -->
+    <nav class="glass-nav sticky top-0 z-40 px-4 py-4 w-full">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-3xl font-light tracking-tight text-brand-brown">GLPura<sup class="text-sm">™</sup></div>
+
+            <div class="hidden lg:flex gap-10 text-[15px] font-medium text-brand-brown">
+                <a href="#how-it-works" class="hover:text-brand-orange transition">Sådan virker det</a>
+                <a href="#results" class="hover:text-brand-orange transition">Resultater</a>
+                <a href="#faq" class="hover:text-brand-orange transition">FAQ</a>
+            </div>
+
+            <a href="https://www.fasttrack36.com/PHPWHDRK/2SK4ZLXR/?uid=50462"
+                class="text-[15px] font-bold text-brand-brown hover:text-brand-orange transition">
+                KØB NU & SPAR 46%
+            </a>
+        </div>
+    </nav>
+
+    <!-- 3) HERO SECTION (THE HOOK) -->
+    <header class="py-16 md:py-20 relative overflow-hidden bg-brand-cream border-b border-brand-cream-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="animate-fade-in-up">
+                    <h1 class="text-4xl md:text-[44px] lg:text-[52px] font-medium text-brand-brown leading-[1.15] mb-6">
+                        Få naturlig kontrol over din vægt og dit stofskifte
+                    </h1>
+                    <p class="text-lg text-body mb-10 leading-relaxed pr-4">
+                        Genaktiver dit stofskifte uden medicin eller nåle. GLPura™ dæmper sult og stabiliserer din
+                        energi naturligt — helt uden koffein eller strenge diæter.
+                    </p>
+
+                    <div class="space-y-6 mb-10">
+                        <!-- Hero Image moved here (above benefits) -->
+                        <div class="relative group mb-8">
+                            <div
+                                class="absolute inset-0 bg-brand-orange/10 blur-[60px] rounded-full scale-75 group-hover:scale-90 transition duration-700">
+                            </div>
+                            <img src="images/hero.png" alt="GLPura Product [SEO]"
+                                class="relative z-10 w-full max-w-[320px] mx-auto lg:mx-0 h-auto object-contain drop-shadow-[0_15px_40px_rgba(61,35,20,0.12)] transform hover:scale-105 transition duration-500">
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="bg-brand-orange text-white w-10 h-10 squircle flex items-center justify-center shrink-0 mt-1 shadow-sm">
+                                <i class="fa-solid fa-fire text-lg"></i>
+                            </div>
+                            <p class="text-body leading-relaxed"><strong
+                                    class="text-brand-brown font-semibold block mb-0.5">Naturlig metabolisme</strong>
+                                Hjælper kroppen med at forbrænde kalorier mere effektivt.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="bg-brand-orange text-white w-10 h-10 squircle flex items-center justify-center shrink-0 mt-1 shadow-sm">
+                                <i class="fa-solid fa-scale-balanced text-lg"></i>
+                            </div>
+                            <p class="text-body leading-relaxed"><strong
+                                    class="text-brand-brown font-semibold block mb-0.5">Mindre sult</strong> Gør det
+                                nemt at spise mindre og stoppe cravings.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="bg-brand-orange text-white w-10 h-10 squircle flex items-center justify-center shrink-0 mt-1 shadow-sm">
+                                <i class="fa-solid fa-bolt text-lg"></i>
+                            </div>
+                            <p class="text-body leading-relaxed"><strong
+                                    class="text-brand-brown font-semibold block mb-0.5">Stabil energi</strong>
+                                Plantebaseret overskud uden rysten eller træthed.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="bg-brand-orange text-white w-10 h-10 squircle flex items-center justify-center shrink-0 mt-1 shadow-sm">
+                                <i class="fa-solid fa-dna text-lg"></i>
+                            </div>
+                            <p class="text-body leading-relaxed"><strong
+                                    class="text-brand-brown font-semibold block mb-0.5">Sund balance</strong> Støtter
+                                blodsukker og mæthedsfølelse i hverdagen.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5">
+                        <a href="https://www.fasttrack36.com/PHPWHDRK/2SK4ZLXR/?uid=50462"
+                            class="w-full sm:w-auto text-center bg-brand-orange hover:bg-brand-orange-hover text-white px-10 py-4 rounded-full font-bold text-lg transition transform hover:-translate-y-1 shadow-lg shadow-brand-orange/30">
+                            Start dit forløb med GLPura i dag
+                        </a>
+                    </div>
+                    <div
+                        class="mt-6 text-[13px] font-medium text-brand-brown-light flex flex-wrap items-center justify-center sm:justify-start gap-x-6 gap-y-2">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-truck-fast text-brand-orange"></i>
+                            Gratis levering i hele Danmark</span>
+                        <span class="flex items-center gap-2"><i
+                                class="fa-solid fa-shield-halved text-brand-orange"></i> 30 dages
+                            tilfredshedsgaranti</span>
+                    </div>
+                </div>
+
+                <!-- Right Side Empty (Image moved to content column) -->
+                <div></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 4) OFFER / PRICING SECTION -->
+    <section id="bundles" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
+                <h2 class="text-3xl md:text-[40px] font-medium text-brand-brown mb-6 leading-tight">Vælg din vej til
+                    forvandling</h2>
+                <p class="text-[17px] text-body">Din rejse mod et lettere liv starter her. Hvordan vil du begynde?</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-stretch pt-4 max-w-5xl mx-auto">
+
+                <!-- [MULIGHED 1: DIREKTE KØB] -->
+                <div
+                    class="bg-white rounded-[40px] p-8 md:p-10 border-[3px] border-brand-orange shadow-[0_32px_64px_-16px_rgba(240,140,58,0.25)] flex flex-col relative animate-fade-in-up h-full">
+                    <div
+                        class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-brand-orange text-white text-[13px] font-bold uppercase py-2 px-8 rounded-full tracking-wider shadow-md">
+                        Best Value
+                    </div>
+
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold text-brand-brown mb-1">Direkte Køb & Ekspres Levering</h3>
+                        <p class="text-brand-orange font-black text-xl mb-4 italic">SPAR 46% NU</p>
+                        <p class="text-[15px] text-body leading-relaxed">Gå direkte til kassen, spring køen over, og få
+                            fat i vores mest populære pakke, før lageret tømmes.</p>
+                    </div>
+
+                    <div class="space-y-4 mb-10 flex-grow">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-orange mt-1"></i>
+                            <p class="text-[15px] font-medium text-brand-brown">Prioriteret forsendelse i dag (1-2
+                                hverdage).</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-orange mt-1"></i>
+                            <p class="text-[15px] font-medium text-brand-brown">Inkluderer 30 dages tilfredshedsgaranti.
+                            </p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-orange mt-1"></i>
+                            <p class="text-[15px] font-medium text-brand-brown">Garanteret laveste pris pr. flaske.</p>
+                        </div>
+                    </div>
+
+                    <a href="https://www.fasttrack36.com/PHPWHDRK/2SK4ZLXR/?uid=50462"
+                        class="w-full block text-center bg-brand-orange text-white font-bold py-5 rounded-full transition hover:bg-brand-orange-hover shadow-xl shadow-brand-orange/20 text-lg uppercase tracking-tight">HENT
+                        MIN RABAT & KØB NU</a>
+                </div>
+
+                <!-- [MULIGHED 2: PERSONLIG ANALYSE] -->
+                <div class="bg-brand-cream/60 backdrop-blur-md rounded-[40px] p-8 md:p-10 border-2 border-brand-brown/15 shadow-[0_20px_50px_rgba(61,35,20,0.1)] flex flex-col relative animate-fade-in-up h-full"
+                    style="animation-delay: 0.1s;">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-brand-brown mb-4">Personlig Analyse (3 min.)</h3>
+                        <p class="text-[15px] text-body leading-relaxed">Besvar 8 spørgsmål for at få en estimeret
+                            tidslinje for dit vægttab.</p>
+                    </div>
+
+                    <div class="mt-4 mb-10 flex-grow">
+                        <div class="bg-white/60 border border-brand-brown/20 rounded-3xl p-6 shadow-sm">
+                            <div class="flex items-center gap-3 mb-2 text-brand-brown/60 font-medium text-sm">
+                                <i class="fa-solid fa-circle-info"></i>
+                                Status
+                            </div>
+                            <p class="text-[15px] text-brand-brown font-medium">Ideelt hvis du stadig er usikker på dine
+                                mål.</p>
+                        </div>
+                    </div>
+
+                    <a href="https://www.fasttrack36.com/PHPWHDRK/2SK4ZLXR/"
+                        class="w-full bg-white border-2 border-brand-brown/20 text-brand-brown font-bold py-5 rounded-full transition hover:bg-brand-brown hover:text-white text-lg flex items-center justify-center gap-2 shadow-sm">Start
+                        testen →</a>
+                </div>
+
+            </div>
+
+            <!-- UNDER BUNDLES (trust tags) -->
+            <div
+                class="mt-20 bg-brand-cream-dark/50 py-8 px-6 rounded-[24px] flex flex-wrap justify-center items-center gap-x-12 gap-y-6">
+                <div class="flex items-center gap-3 text-brand-brown font-medium text-[15px]">
+                    <div class="bg-brand-orange text-white w-9 h-9 squircle flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div> Vegansk
+                </div>
+                <div class="flex items-center gap-3 text-brand-brown font-medium text-[15px]">
+                    <div class="bg-brand-orange text-white w-9 h-9 squircle flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-wheat-awn-circle-exclamation text-sm"></i>
+                    </div> Glutenfri
+                </div>
+                <div class="flex items-center gap-3 text-brand-brown font-medium text-[15px]">
+                    <div class="bg-brand-orange text-white w-9 h-9 squircle flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-dna text-sm"></i>
+                    </div> Ikke-GMO
+                </div>
+                <div class="flex items-center gap-3 text-brand-brown font-medium text-[15px]">
+                    <div class="bg-brand-orange text-white w-9 h-9 squircle flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-ban text-sm"></i>
+                    </div> Ingen kunstige farvestoffer eller stimulanser
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5) SOCIAL PROOF – RIGTIGE DANSKERE, RIGTIGE VANER -->
+    <section id="results" class="py-24 bg-brand-cream border-t border-brand-cream-dark/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20 animate-fade-in-up">
+                <h2 class="text-3xl md:text-[40px] font-medium text-brand-brown mb-6 leading-tight">Ægte erfaringer fra
+                    danskere, der ville have kontrol — ikke crash-kure</h2>
+                <p class="text-[17px] text-body">GLPura™ tiltrækker danskere, der er trætte af ekstreme løsninger og
+                    ønsker naturlig, stabil støtte til vægt, appetit og energi.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- TESTIMONIAL 1 -->
+                <div
+                    class="bg-white p-10 rounded-[32px] shadow-sm border border-brand-cream-dark flex flex-col animate-fade-in-up">
+                    <div class="flex text-brand-orange mb-6 text-[15px] gap-1"><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p
+                        class="text-body text-[15px] mb-8 leading-relaxed italic flex-grow hover:text-brand-brown transition">
+                        “Efter jeg fyldte 40, følte jeg, at mit stofskifte bare gik i stå. Jeg ville ikke direkte på
+                        medicinsk vægttabsmedicin, men jeg havde brug for hjælp. Med GLPura føler jeg mig lettere,
+                        mindre oppustet og har fået energien tilbage — uden uro eller hjertebanken.”</p>
+                    <div class="flex items-center gap-4 mt-auto border-t border-brand-cream-dark pt-5">
+                        <div
+                            class="w-10 h-10 bg-brand-cream rounded-full flex items-center justify-center text-brand-brown font-bold text-sm">
+                            M</div>
+                        <div>
+                            <p class="font-bold text-brand-brown text-[15px]">Maria K.</p>
+                            <p class="text-[13px] text-brand-brown-light">København</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TESTIMONIAL 2 -->
+                <div class="bg-white p-10 rounded-[32px] shadow-sm border border-brand-cream-dark flex flex-col animate-fade-in-up"
+                    style="animation-delay: 0.15s;">
+                    <div class="flex text-brand-orange mb-6 text-[15px] gap-1"><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p
+                        class="text-body text-[15px] mb-8 leading-relaxed italic flex-grow hover:text-brand-brown transition">
+                        “Jeg havde konstante cravings om aftenen. Med GLPura mærkede jeg efter et par uger, at jeg blev
+                        hurtigere mæt og tænkte mindre på snacks. Det føles som et realistisk værktøj, ikke en
+                        mirakelpille.”</p>
+                    <div class="flex items-center gap-4 mt-auto border-t border-brand-cream-dark pt-5">
+                        <div
+                            class="w-10 h-10 bg-brand-cream rounded-full flex items-center justify-center text-brand-brown font-bold text-sm">
+                            L</div>
+                        <div>
+                            <p class="font-bold text-brand-brown text-[15px]">Line S.</p>
+                            <p class="text-[13px] text-brand-brown-light">Aarhus</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TESTIMONIAL 3 -->
+                <div class="bg-white p-10 rounded-[32px] shadow-sm border border-brand-cream-dark flex flex-col animate-fade-in-up"
+                    style="animation-delay: 0.3s;">
+                    <div class="flex text-brand-orange mb-6 text-[15px] gap-1"><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p
+                        class="text-body text-[15px] mb-8 leading-relaxed italic flex-grow hover:text-brand-brown transition">
+                        “Jeg ville have noget, der støtter vægttab og energi, men uden stimulanser og uden at rode med
+                        mit nervesystem. GLPura passer ind i min hverdag, og jeg oplever mere rolig energi og bedre
+                        kontrol over portionerne.”</p>
+                    <div class="flex items-center gap-4 mt-auto border-t border-brand-cream-dark pt-5">
+                        <div
+                            class="w-10 h-10 bg-brand-cream rounded-full flex items-center justify-center text-brand-brown font-bold text-sm">
+                            T</div>
+                        <div>
+                            <p class="font-bold text-brand-brown text-[15px]">Thomas B.</p>
+                            <p class="text-[13px] text-brand-brown-light">Odense</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATISTIKBLOK -->
+            <div
+                class="bg-white border-2 border-brand-cream-dark rounded-[32px] p-8 md:p-12 max-w-4xl mx-auto shadow-sm animate-fade-in-up">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="text-3xl font-bold text-brand-orange min-w-[70px]">92%</div>
+                        <p class="text-brand-brown font-medium text-[15px]">af brugere rapporterede, at de følte sig
+                            lettere og mere “tilpas i kroppen” efter 4 uger*</p>
+                    </div>
+                    <div class="w-full h-px bg-brand-cream-dark"></div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-3xl font-bold text-brand-orange min-w-[70px]">94%</div>
+                        <p class="text-brand-brown font-medium text-[15px]">oplevede mere stabil energi i løbet af
+                            dagen*</p>
+                    </div>
+                    <div class="w-full h-px bg-brand-cream-dark"></div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-3xl font-bold text-brand-orange min-w-[70px]">89%</div>
+                        <p class="text-brand-brown font-medium text-[15px]">oplevede færre cravings og mindre trang til
+                            overspisning*</p>
+                    </div>
+                </div>
+                <p class="text-[12px] text-brand-brown-light italic mt-8 text-center sm:text-left">
+                    *Selvrapporterede resultater fra interne kundespørgeskemaer. Individuelle resultater kan variere.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6) FAQ SECTION -->
+    <section id="faq" class="py-24 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-[40px] font-medium text-brand-brown text-center mb-16">FAQ — Sikkerhed, brug og
+                realistiske forventninger</h2>
+
+            <div class="space-y-4 animate-fade-in-up">
+
+                <div
+                    class="faq-item border border-brand-cream-dark rounded-[24px] bg-brand-cream overflow-hidden cursor-pointer">
+                    <div class="faq-question flex justify-between items-center p-6 bg-white hover:bg-brand-cream transition"
+                        onclick="toggleFaq(this)">
+                        <h4 class="font-bold text-brand-brown text-[16px]">Hvornår kan jeg forvente resultater med
+                            GLPura?</h4>
+                        <i
+                            class="fa-solid fa-chevron-down faq-icon text-brand-orange text-sm transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 bg-brand-cream text-body text-[15px] leading-relaxed">
+                        <p>De fleste mærker mere stabil energi og mindre cravings inden for 1–2 uger, mens synlige
+                            ændringer i vægt og kropsfornemmelse typisk opleves efter 3–4 ugers konsekvent brug sammen
+                            med en balanceret kost og let aktivitet.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item border border-brand-cream-dark rounded-[24px] bg-brand-cream overflow-hidden cursor-pointer">
+                    <div class="faq-question flex justify-between items-center p-6 bg-white hover:bg-brand-cream transition"
+                        onclick="toggleFaq(this)">
+                        <h4 class="font-bold text-brand-brown text-[16px]">Indeholder GLPura stimulanter eller koffein?
+                        </h4>
+                        <i
+                            class="fa-solid fa-chevron-down faq-icon text-brand-orange text-sm transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 bg-brand-cream text-body text-[15px] leading-relaxed">
+                        <p>Nej. GLPura er fri for koffein og syntetiske stimulanter. Formlen er udviklet til at støtte
+                            stofskifte og appetitkontrol uden nervøsitet, søvnproblemer eller “crash”.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item border border-brand-cream-dark rounded-[24px] bg-brand-cream overflow-hidden cursor-pointer">
+                    <div class="faq-question flex justify-between items-center p-6 bg-white hover:bg-brand-cream transition"
+                        onclick="toggleFaq(this)">
+                        <h4 class="font-bold text-brand-brown text-[16px] pr-8">Hvad gør GLPura anderledes end medicinsk
+                            vægttab eller hurtige kure?</h4>
+                        <i
+                            class="fa-solid fa-chevron-down faq-icon text-brand-orange text-sm transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 bg-brand-cream text-body text-[15px] leading-relaxed">
+                        <p>GLPura er ikke et lægemiddel og erstatter ikke GLP-1-behandling ordineret af læge. I stedet
+                            arbejder det med kroppens egne signaler for mæthed, energi og blodsukker, som en naturlig
+                            støtte til en sundere livsstil — uden nåle og uden ekstreme diæter.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item border border-brand-cream-dark rounded-[24px] bg-brand-cream overflow-hidden cursor-pointer">
+                    <div class="faq-question flex justify-between items-center p-6 bg-white hover:bg-brand-cream transition"
+                        onclick="toggleFaq(this)">
+                        <h4 class="font-bold text-brand-brown text-[16px]">Er GLPura sikkert at bruge?</h4>
+                        <i
+                            class="fa-solid fa-chevron-down faq-icon text-brand-orange text-sm transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 bg-brand-cream text-body text-[15px] leading-relaxed">
+                        <p>GLPura er fremstillet af naturlige, plantebaserede ingredienser, uden GMO og uden kunstige
+                            farvestoffer. Som med alle kosttilskud anbefaler vi, at du konsulterer din læge, hvis du
+                            tager medicin, er gravid, ammer eller har kroniske sygdomme.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item border border-brand-cream-dark rounded-[24px] bg-brand-cream overflow-hidden cursor-pointer">
+                    <div class="faq-question flex justify-between items-center p-6 bg-white hover:bg-brand-cream transition"
+                        onclick="toggleFaq(this)">
+                        <h4 class="font-bold text-brand-brown text-[16px]">Hvordan tager jeg kapslerne for bedst effekt?
+                        </h4>
+                        <i
+                            class="fa-solid fa-chevron-down faq-icon text-brand-orange text-sm transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 bg-brand-cream text-body text-[15px] leading-relaxed">
+                        <p>Tag 2 kapsler dagligt med vand, gerne 20–30 minutter før dit største måltid. Mange oplever,
+                            at dette hjælper med bedre appetitkontrol og mindre overspisning.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item border border-brand-cream-dark rounded-[24px] bg-brand-cream overflow-hidden cursor-pointer">
+                    <div class="faq-question flex justify-between items-center p-6 bg-white hover:bg-brand-cream transition"
+                        onclick="toggleFaq(this)">
+                        <h4 class="font-bold text-brand-brown text-[16px]">Kan jeg kombinere GLPura med motion og andre
+                            livsstilstiltag?</h4>
+                        <i
+                            class="fa-solid fa-chevron-down faq-icon text-brand-orange text-sm transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 bg-brand-cream text-body text-[15px] leading-relaxed">
+                        <p>Ja. GLPura er tænkt som en del af en helhedsorienteret tilgang: enkle kostvalg, lidt mere
+                            bevægelse og støtte til appetit og energi. Mange oplever, at produktet gør det nemmere at
+                            holde fast i de gode vaner.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="faq-item border border-brand-cream-dark rounded-[24px] bg-brand-cream overflow-hidden cursor-pointer">
+                    <div class="faq-question flex justify-between items-center p-6 bg-white hover:bg-brand-cream transition"
+                        onclick="toggleFaq(this)">
+                        <h4 class="font-bold text-brand-brown text-[16px]">Hvad hvis GLPura ikke virker for mig?</h4>
+                        <i
+                            class="fa-solid fa-chevron-down faq-icon text-brand-orange text-sm transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 bg-brand-cream text-body text-[15px] leading-relaxed">
+                        <p>Hvis du ikke føler mere stabil energi, bedre kontrol over cravings eller en generel
+                            forbedring i, hvordan du har det i kroppen, inden for 30 dage, er du dækket af vores 30
+                            dages tilfredshedsgaranti.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7) FOOTER & LEGAL -->
+    <footer class="bg-brand-brown text-brand-cream/60 py-16 mt-auto border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Branding & Status -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="text-3xl font-light tracking-tight text-white mb-6">GLPura<sup class="text-sm">™</sup>
+                    </div>
+                    <p class="text-[13px] leading-relaxed max-w-sm mb-6">
+                        GLPura™ er dedikeret til at støtte din metaboliske sundhed gennem naturlige, videnskabeligt
+                        baserede løsninger. Vi stræber efter at gøre vægtkontrol bæredygtig og realistisk for alle.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <span class="text-[11px] uppercase tracking-widest font-bold">Distribueret i Danmark</span>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div>
+                    <h5 class="text-white font-bold text-sm mb-6 uppercase tracking-wider">Information</h5>
+                    <ul class="space-y-4 text-[14px]">
+                        <li><a href="#results" class="hover:text-white transition">Resultater</a></li>
+                        <li><a href="#faq" class="hover:text-white transition">Ofte stillede spørgsmål</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Links -->
+                <div>
+                    <h5 class="text-white font-bold text-sm mb-6 uppercase tracking-wider">Juridisk</h5>
+                    <ul class="space-y-4 text-[14px]">
+                        <li><a href="#" onclick="openModal('privacyModal'); return false;"
+                                class="hover:text-white transition">Privatlivspolitik</a></li>
+                        <li><a href="#" onclick="openModal('termsModal'); return false;"
+                                class="hover:text-white transition">Brugervilkår</a></li>
+                        <li><a href="#" onclick="openModal('ingredientsModal'); return false;"
+                                class="hover:text-white transition">Ingredienser (Detaljer)</a></li>
+                        <li><a href="#" onclick="openModal('helpModal'); return false;"
+                                class="hover:text-white transition">Hjælpecenter</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <!-- Essential Disclaimer -->
+                    <div class="mb-8 text-[11px] leading-relaxed opacity-40 hover:opacity-100 transition duration-500">
+                        <p class="mb-4 uppercase font-bold tracking-widest text-white">Ansvarsfraskrivelse &
+                            Distributørstatus</p>
+                        <p class="mb-4">
+                            Dette websted drives af en uafhængig distributør af GLPura™. Vi er officielle distributører
+                            og ikke de direkte producenter af formlen. Alle krav vedrørende produktets effektivitet er
+                            baseret på producentens data og kundernes egne rapporterede erfaringer.
+                        </p>
+                        <p class="mb-4">
+                            Dette produkt er et kosttilskud og er ikke beregnet til at diagnosticere, behandle, helbrede
+                            eller forebygge nogen sygdom. De udtalelser, der findes på dette websted, er ikke blevet
+                            evalueret af sundhedsmyndighederne. Billeder og resultater i testimonials er individuelle og
+                            kan variere fra person til person.
+                        </p>
+                        <p>
+                            Produktet bør ikke anvendes af personer under 18 år, gravide eller ammende kvinder. Hvis du
+                            er under medicinsk behandling for en kronisk tilstand, bør du altid konsultere din læge, før
+                            du påbegynder et nyt kosttilskudsprogram.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col items-center gap-4 border-t border-white/5 pt-8">
+                        <div class="flex gap-6 opacity-30 grayscale contrast-125 mb-4">
+                            <i class="fa-brands fa-cc-visa text-2xl"></i>
+                            <i class="fa-brands fa-cc-mastercard text-2xl"></i>
+                            <i class="fa-solid fa-shield-halved text-2xl"></i>
+                        </div>
+                        <p class="text-[10px] tracking-widest uppercase opacity-30 font-medium">
+                            &copy; 2026 GLPura™ Denmark. Officiel Distributør.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+    <!-- Privatlivspolitik Modal -->
+    <div id="privacyModal"
+        class="modal fixed inset-0 z-50 bg-brand-brown/80 backdrop-blur-sm justify-center items-center p-4">
+        <div class="bg-white rounded-[24px] w-full max-w-lg max-h-[80vh] flex flex-col overflow-hidden shadow-2xl">
+            <div class="p-6 border-b border-brand-cream-dark flex justify-between items-center bg-brand-cream">
+                <h3 class="font-bold text-brand-brown text-lg">Privatlivspolitik</h3>
+                <button onclick="closeModals()" class="text-brand-brown-light hover:text-brand-brown transition"><i
+                        class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="p-6 overflow-y-auto text-body text-[15px] leading-relaxed">
+                <p class="mb-4">Hos GLPura™ tager vi beskyttelsen af dine personlige oplysninger alvorligt. Denne
+                    politik beskriver, hvordan vi indsamler og behandler dine data i overensstemmelse med GDPR.</p>
+                <h4 class="font-bold text-brand-brown mb-2">1. Indsamling af data</h4>
+                <p class="mb-4">Vi indsamler kun de nødvendige oplysninger for at kunne levere dine produkter, herunder
+                    navn, adresse, e-mail og telefonnummer ved køb.</p>
+                <h4 class="font-bold text-brand-brown mb-2">2. Brug af oplysninger</h4>
+                <p class="mb-4">Dine data bruges udelukkende til ordrehåndtering, kundesupport og (hvis tilvalgt)
+                    nyhedsbreve. Vi sælger aldrig dine data til tredjepart.</p>
+                <h4 class="font-bold text-brand-brown mb-2">3. Dine rettigheder</h4>
+                <p>Du har til enhver tid ret til at anmode om indsigt i, rettelse af eller sletning af dine
+                    personoplysninger i vores systemer.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brugervilkår Modal -->
+    <div id="termsModal"
+        class="modal fixed inset-0 z-50 bg-brand-brown/80 backdrop-blur-sm justify-center items-center p-4">
+        <div class="bg-white rounded-[24px] w-full max-w-lg max-h-[80vh] flex flex-col overflow-hidden shadow-2xl">
+            <div class="p-6 border-b border-brand-cream-dark flex justify-between items-center bg-brand-cream">
+                <h3 class="font-bold text-brand-brown text-lg">Brugervilkår</h3>
+                <button onclick="closeModals()" class="text-brand-brown-light hover:text-brand-brown transition"><i
+                        class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="p-6 overflow-y-auto text-body text-[15px] leading-relaxed">
+                <p class="mb-4">Ved at benytte denne hjemmeside og købe produkter fra GLPura™, accepterer du følgende
+                    vilkår og betingelser.</p>
+                <h4 class="font-bold text-brand-brown mb-2">1. Bestilling og Betaling</h4>
+                <p class="mb-4">Alle priser er inkl. moms. Betaling sker sikkert via vores betalingspartnere. En
+                    bindende aftale er indgået, når du modtager en ordrebekræftelse.</p>
+                <h4 class="font-bold text-brand-brown mb-2">2. Levering</h4>
+                <p class="mb-4">Vi sender typisk inden for 24 timer. Leveringstiden i Danmark er normalt 1-2 hverdage.
+                </p>
+                <h4 class="font-bold text-brand-brown mb-2">3. Fortrydelsesret</h4>
+                <p>Som kunde har du 14 dages lovbestemt fortrydelsesret. Hertil tilbyder vi en udvidet 30-dages
+                    tilfredshedsgaranti på din første pakke.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ingredienser Modal -->
+    <div id="ingredientsModal"
+        class="modal fixed inset-0 z-50 bg-brand-brown/80 backdrop-blur-sm justify-center items-center p-4">
+        <div class="bg-white rounded-[24px] w-full max-w-lg max-h-[80vh] flex flex-col overflow-hidden shadow-2xl">
+            <div class="p-6 border-b border-brand-cream-dark flex justify-between items-center bg-brand-cream">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-leaf text-brand-orange"></i>
+                    <h3 class="font-bold text-brand-brown text-lg">Ingredienser</h3>
+                </div>
+                <button onclick="closeModals()" class="text-brand-brown-light hover:text-brand-brown transition"><i
+                        class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="p-6 overflow-y-auto text-body text-[15px] leading-relaxed">
+                <p class="mb-4">GLPura™ er baseret på naturlige ekstrakter, der arbejder i synergi for at støtte dit
+                    stofskifte.</p>
+                <ul class="space-y-3 mb-4">
+                    <li><strong class="text-brand-brown">Berberine (HCI):</strong> Kendt for at støtte
+                        blodsukkerbalancen og metabolisk effektivitet.</li>
+                    <li><strong class="text-brand-brown">Chromium Picolinate:</strong> Et essentielt sporstof, der
+                        bidrager til at vedligeholde et normalt blodsukkerniveau og dæmpe trangen til sødt.</li>
+                    <li><strong class="text-brand-brown">Glucomannan:</strong> Plante fibre, der bidrager til vægttab i
+                        forbindelse med en energireduceret kost.</li>
+                    <li><strong class="text-brand-brown">Grøn Te Ekstrakt:</strong> Støtter fedtforbrænding og giver
+                        naturlig, stabil energi.</li>
+                </ul>
+                <p class="text-xs italic">Kapslerne er 100% veganske og fri for GMO, kunstige farvestoffer og
+                    konserveringsmidler.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hjælpecenter Modal -->
+    <div id="helpModal"
+        class="modal fixed inset-0 z-50 bg-brand-brown/80 backdrop-blur-sm justify-center items-center p-4">
+        <div class="bg-white rounded-[24px] w-full max-w-lg max-h-[80vh] flex flex-col overflow-hidden shadow-2xl">
+            <div class="p-6 border-b border-brand-cream-dark flex justify-between items-center bg-brand-cream">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-headset text-brand-orange"></i>
+                    <h3 class="font-bold text-brand-brown text-lg">Hjælpecenter</h3>
+                </div>
+                <button onclick="closeModals()" class="text-brand-brown-light hover:text-brand-brown transition"><i
+                        class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="p-6 overflow-y-auto text-body text-[15px] leading-relaxed">
+                <h4 class="font-bold text-brand-brown mb-2">Hvordan kan vi hjælpe?</h4>
+                <p class="mb-4">Vores danske supportteam sidder klar til at assistere dig med dit forløb eller spørgsmål
+                    til din ordre.</p>
+                <div class="bg-brand-cream p-4 rounded-xl mb-6">
+                    <p class="font-bold mb-1">Kontakt e-mail:</p>
+                    <p class="text-brand-orange">kontakt@glpura.dk</p>
+                </div>
+                <h4 class="font-bold text-brand-brown mb-2">Retur og Garanti</h4>
+                <p class="mb-4">Ønsker du at gøre brug af din 30-dages tilfredshedsgaranti? Send os blot en mail, så
+                    guider vi dig igennem processen.</p>
+                <h4 class="font-bold text-brand-brown mb-2">Leveringsstatus</h4>
+                <p>Når din ordre er afsendt, modtager du et trackingnummer via e-mail.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll('.animate-fade-in-up');
+            elements.forEach(el => el.style.opacity = '0');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.animation = 'none';
+                        entry.target.offsetHeight;
+                        entry.target.style.animation = null;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, threshold: 0.1, rootMargin: "0px" });
+
+            elements.forEach(el => observer.observe(el));
+        });
+
+        function toggleFaq(element) {
+            const parent = element.parentElement;
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== parent) item.classList.remove('active');
+            });
+            parent.classList.toggle('active');
+        }
+
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModals() {
+            document.querySelectorAll('.modal').forEach(modal => modal.classList.remove('active'));
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function (event) { if (event.target.classList.contains('modal')) closeModals(); }
+        document.addEventListener('keydown', function (event) { if (event.key === 'Escape') closeModals(); });
+    </script>
+</body>
+
+</html>
